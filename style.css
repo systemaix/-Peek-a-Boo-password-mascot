@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e0e5ec;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.wrapper {
+    position: relative;
+    width: 320px;
+    margin-top: 80px;
+}
+
+/* --- THE MASCOT --- */
+.mascot {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    z-index: 1; 
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+    background: #a2b1c6;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset -10px -10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; 
+}
+
+/* The Head Dip Animation */
+.mascot.hide-eyes .face {
+    transform: translateY(8px);
+}
+
+.eye {
+    position: absolute;
+    top: 35px;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    /* Smooth transition for the squint */
+    transition: all 0.3s ease-in-out; 
+}
+
+.eye.left { left: 25px; }
+.eye.right { right: 25px; }
+
+/* The Eyes Squeezing Shut */
+.mascot.hide-eyes .eye {
+    height: 4px;           /* Squeeze vertically */
+    top: 48px;             /* Push down to keep it centered on the face */
+    background: #2c3e50;   /* Turn dark to look like a closed eyelid */
+    border-radius: 10px;   /* Round the edges of the closed lid */
+}
+
+.pupil {
+    width: 12px;
+    height: 12px;
+    background: #2c3e50;
+    border-radius: 50%;
+    transition: opacity 0.2s;
+}
+
+/* Hide the pupil when the eyes close */
+.mascot.hide-eyes .pupil {
+    opacity: 0;
+}
+
+.beak {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid #f39c12;
+}
+
+/* --- THE FORM --- */
+.login-form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h2 { margin: 0 0 10px 0; text-align: center; color: #2c3e50; }
+
+input {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+input:focus { border-color: #3498db; }
+
+button {
+    padding: 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+button:hover { background: #2980b9; }
